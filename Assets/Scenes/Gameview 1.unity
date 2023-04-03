@@ -416,7 +416,7 @@ MonoBehaviour:
   tribalPrefabs:
   - {fileID: 1573281472736089497, guid: 5bf11801239e73845bc7c55ff53a3ef1, type: 3}
   - {fileID: 1573281472736089497, guid: 023675b0f2e8c804d8240bc6b914e4d4, type: 3}
-  numberToSpawn: 20
+  numberToSpawn: 10
   maxPosX: 35
   minPosX: -35
   maxPosZ: 15
@@ -1155,6 +1155,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b48f59e8413b1b24693f7a4f997fe133,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d566a7154b5a8b45bb7ff236bf1498f, type: 2}
     - target: {fileID: 919132149155446097, guid: b48f59e8413b1b24693f7a4f997fe133,
         type: 3}
       propertyPath: m_Name
@@ -1232,7 +1237,7 @@ MonoBehaviour:
   - {fileID: 7538561378517572727, guid: a28f9471c90d2d24d9b2d06ea2dd8773, type: 3}
   - {fileID: 842839866026399191, guid: 6816237bd254e4c40a34e732e88f1ed2, type: 3}
   - {fileID: 3135551944469869292, guid: 33eea6e350be86a47b04a2d1782773a5, type: 3}
-  numberToSpawn: 125
+  numberToSpawn: 75
   maxPosX: 44
   minPosX: -44
   maxPosZ: 25
@@ -1416,7 +1421,7 @@ GameObject:
   - component: {fileID: 746706249}
   - component: {fileID: 746706248}
   - component: {fileID: 746706247}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Water Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1560,6 +1565,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b48f59e8413b1b24693f7a4f997fe133,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d566a7154b5a8b45bb7ff236bf1498f, type: 2}
     - target: {fileID: 919132149155446097, guid: b48f59e8413b1b24693f7a4f997fe133,
         type: 3}
       propertyPath: m_Name
