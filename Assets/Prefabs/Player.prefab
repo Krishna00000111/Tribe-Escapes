@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupPoint: {fileID: 513412590}
   sphereOrigin: {fileID: 4490927720258816449}
-  sphereRadius: 0.61
+  sphereRadius: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 512
