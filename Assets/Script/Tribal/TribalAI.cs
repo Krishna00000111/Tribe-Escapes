@@ -114,7 +114,7 @@ public class TribalAI : MonoBehaviour
 
         walkPoint = new Vector3(walkPoint.x + numberX, walkPoint.y, walkPoint.z + numberZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        if (Physics.Raycast(walkPoint, -transform.up, 0.4f, whatIsGround))
             walkPointSet = true;
         
     }
@@ -139,8 +139,7 @@ public class TribalAI : MonoBehaviour
 
             
 
-            isRun = false;
-            isWalking = false;
+
             Rigidbody rb = Instantiate(stonePrefab, handPos.gameObject.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             
 

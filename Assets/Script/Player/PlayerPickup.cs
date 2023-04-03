@@ -62,6 +62,10 @@ public class PlayerPickup : MonoBehaviour
 
         }
 
+
+        // BEFORE LEVEL COMPLETED
+
+
         if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0 )
         {
             isHolding = false;
@@ -86,11 +90,17 @@ public class PlayerPickup : MonoBehaviour
 
         }
 
+
+
+        // *******  MISSION COMPLETED  *******
+
         if (playerDrop.missionCompleted)
         {
             if (!isHolding) return;
 
             isHolding = false;
+
+            pickedObject.layer = 0;
 
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
 
@@ -104,16 +114,9 @@ public class PlayerPickup : MonoBehaviour
 
             pickedObject.transform.parent = null;
 
-            pickedObject.layer = 0;
-
-
-            pickedObject.SetActive(false);
-
             pickedObject = null;
 
             theArrow.SetActive(false);
-
-
         }
 
     }
