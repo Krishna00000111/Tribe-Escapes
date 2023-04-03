@@ -51,7 +51,7 @@ public class TribalAI : MonoBehaviour
         targetPlayer = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
-
+    
     public void Update()
     {
         stonePrefab.transform.position = handPos.transform.position;
@@ -59,6 +59,7 @@ public class TribalAI : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+        
         if (!playerInAttackRange && !playerInSightRange)
         {
 
