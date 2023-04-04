@@ -25,11 +25,14 @@ public class PlayerPickup : MonoBehaviour
     [HideInInspector]
     public bool isHolding;
 
+    public GameObject missionText;
+
     private void Start()
     {
         playerMove = GetComponent<PlayerMove>();
         playerDrop = FindObjectOfType<PlayerDrop>();
 
+        missionText.SetActive(false);
 
         theArrow.SetActive(false);
 
@@ -126,6 +129,16 @@ public class PlayerPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Drop"))
         {
             playerMove.holdStrength = 0;
+
+            missionText.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Drop"))
+        {
+            missionText.SetActive(false);
         }
     }
 
