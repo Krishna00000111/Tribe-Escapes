@@ -47,8 +47,8 @@ public class PlayerDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pickable"))
         {
-            currentLogDetected++;
-            requiredLogText--;
+            currentLogDetected = currentLogDetected + 5;
+            requiredLogText = requiredLog - 5;
         }
         
        

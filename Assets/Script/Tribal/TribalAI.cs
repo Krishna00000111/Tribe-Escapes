@@ -23,6 +23,8 @@ public class TribalAI : MonoBehaviour
 
     private float tribalSpeed;
 
+    private PlayerDrop playerDrop;
+
     //animation triggers
     private bool isRun;
     private bool isAttacking;
@@ -50,9 +52,10 @@ public class TribalAI : MonoBehaviour
     {
         targetPlayer = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        playerDrop = FindObjectOfType<PlayerDrop>();
     }
     
-    public void Update()
+    public void FixedUpdate()
     {
         stonePrefab.transform.position = handPos.transform.position;
         //check for sight and attack range
@@ -90,6 +93,15 @@ public class TribalAI : MonoBehaviour
 
 
         tribalSpeed = Random.Range(5.00f, 7.00f);
+
+        if (playerDrop.onBoat)
+        {
+            sightRange = 0;
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void Patroling() 

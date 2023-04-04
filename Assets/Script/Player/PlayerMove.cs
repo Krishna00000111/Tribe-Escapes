@@ -12,6 +12,8 @@ public class PlayerMove : MonoBehaviour
 
     public GameObject directionCicle;
 
+    public LayerMask thisIsGround;
+
     public int holdStrength;
 
     private Rigidbody player_rb;
