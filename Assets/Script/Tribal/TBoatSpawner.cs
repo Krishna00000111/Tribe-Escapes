@@ -13,22 +13,21 @@ public class TBoatSpawner : MonoBehaviour
 
     public PlayerDrop playerDrop;
 
+    private bool geneEnemy;
+
     private void FixedUpdate()
     {
         if (playerDrop.onBoat)
         {
-            for (int i = 0; i < boatSpawnPos.Length; i++)
-            {
-                GameObject prefabs = Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
-
-                prefabs.transform.position = Vector3.MoveTowards(prefabs.transform.position, target.transform.position, chaseSpeed * Time.deltaTime);
-            }
-
-            
+               Instantiate(enemyBoatPrefab, boatSpawnPos[].position, boatSpawnPos[].rotation);
         }
-        else
+    }
+
+    private void GenerateEnemyVehicle()
+    {
+        if (playerDrop.onBoat)
         {
-            return;
+
         }
     }
 }
