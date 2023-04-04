@@ -7,6 +7,10 @@ public class TBoatSpawner : MonoBehaviour
     public GameObject enemyBoatPrefab;
     public Transform[] boatSpawnPos;
 
+    public float chaseSpeed;
+
+    public GameObject target;
+
     public PlayerDrop playerDrop;
 
     private void FixedUpdate()
@@ -15,8 +19,12 @@ public class TBoatSpawner : MonoBehaviour
         {
             for (int i = 0; i < boatSpawnPos.Length; i++)
             {
-                Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
+                GameObject prefabs = Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
+
+                prefabs.transform.position = Vector3.MoveTowards(prefabs.transform.position, target.transform.position, chaseSpeed * Time.deltaTime);
             }
+
+            
         }
         else
         {
