@@ -19,7 +19,17 @@ public class TBoatSpawner : MonoBehaviour
     {
         if (playerDrop.onBoat)
         {
-               Instantiate(enemyBoatPrefab, boatSpawnPos[].position, boatSpawnPos[].rotation);
+            for (int i = 0; i < boatSpawnPos.Length; i++)
+            {
+               Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
+                
+            }
+
+            
+        }
+        else
+        {
+            return;
         }
     }
 
