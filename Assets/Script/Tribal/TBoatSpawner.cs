@@ -13,7 +13,10 @@ public class TBoatSpawner : MonoBehaviour
     {
         if (playerDrop.onBoat)
         {
-            Instantiate(enemyBoatPrefab, boatSpawnPos[0].position, boatSpawnPos[0].rotation);
+            for (int i = 0; i < boatSpawnPos.Length; i++)
+            {
+                Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
+            }
         }
         else
         {
