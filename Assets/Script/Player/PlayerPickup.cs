@@ -131,6 +131,7 @@ public class PlayerPickup : MonoBehaviour
             playerMove.holdStrength = 0;
 
             missionText.SetActive(true);
+
         }
     }
 
