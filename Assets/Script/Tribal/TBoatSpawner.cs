@@ -7,37 +7,19 @@ public class TBoatSpawner : MonoBehaviour
     public GameObject enemyBoatPrefab;
     public Transform[] boatSpawnPos;
 
-    public float chaseSpeed;
-
-    public GameObject target;
-
     public PlayerDrop playerDrop;
 
-    private bool geneEnemy;
+    private bool hasInstantiated = false;
 
     private void FixedUpdate()
     {
-        if (playerDrop.onBoat)
+       if(playerDrop.onBoat && !hasInstantiated)
         {
             for (int i = 0; i < boatSpawnPos.Length; i++)
             {
-               Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
-                
+                Instantiate(enemyBoatPrefab, boatSpawnPos[i].position, boatSpawnPos[i].rotation);
+                hasInstantiated = true;
             }
-
-            
-        }
-        else
-        {
-            return;
-        }
-    }
-
-    private void GenerateEnemyVehicle()
-    {
-        if (playerDrop.onBoat)
-        {
-
         }
     }
 }
