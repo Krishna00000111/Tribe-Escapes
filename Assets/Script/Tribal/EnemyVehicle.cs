@@ -8,6 +8,10 @@ public class EnemyVehicle : MonoBehaviour
     public float speed = 5f;
     private float stoppingDistance = 5f;
 
+    public float throwInterval = 2;
+    public GameObject bigStonePrefab;
+    public Vector3 stonePos;
+
     private Rigidbody vehicleRb;
 
     private void Start()
@@ -16,11 +20,14 @@ public class EnemyVehicle : MonoBehaviour
         vehicleRb = GetComponent<Rigidbody>();
         speed = Random.Range(6f, 7f);
 
+        InvokeRepeating("GenerateStone", 0f, throwInterval);
+
     }
 
     void FixedUpdate()
     {
         //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+
 
 
         if (target != null)
@@ -38,5 +45,11 @@ public class EnemyVehicle : MonoBehaviour
             }
         }
         transform.LookAt(target.transform.position);
+    }
+
+    void GenerateStone()
+    {
+
+        GameObject geneStone = Instantiate(bigStonePrefab, transform.position + stonePos, Quaternion.identity);
     }
 }

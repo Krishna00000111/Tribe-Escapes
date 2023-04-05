@@ -49,6 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.25
+  throwInterval: 1
+  bigStonePrefab: {fileID: 8991934196462338329, guid: 059964b7c8f98c3409f3134dfb18c25d,
+    type: 3}
+  stonePos: {x: 0, y: 1.1, z: 0}
 --- !u!54 &-5058763440827449898
 Rigidbody:
   m_ObjectHideFlags: 0
