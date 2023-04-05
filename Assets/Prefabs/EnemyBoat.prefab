@@ -49,10 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.25
-  throwInterval: 1
-  bigStonePrefab: {fileID: 8991934196462338329, guid: 059964b7c8f98c3409f3134dfb18c25d,
-    type: 3}
-  stonePos: {x: 0, y: 1.1, z: 0}
 --- !u!54 &-5058763440827449898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,6 +166,35 @@ PrefabInstance:
 --- !u!4 &978907113683171767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 574538143331154700, guid: 8388df9b4a31fbe428000b37bfe71227,
+    type: 3}
+  m_PrefabInstance: {fileID: 751236581995201211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2286006278062413602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1573281472736089497, guid: 8388df9b4a31fbe428000b37bfe71227,
+    type: 3}
+  m_PrefabInstance: {fileID: 751236581995201211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &581202628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286006278062413602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f93bb9f8f449634aadb1b5d505a4f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigStone: {fileID: 8991934196462338329, guid: 059964b7c8f98c3409f3134dfb18c25d,
+    type: 3}
+  handPos: {fileID: 4737848816156601588}
+  throwSpeed: 50
+  throwInterval: 3
+--- !u!4 &4737848816156601588 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5452968361969233487, guid: 8388df9b4a31fbe428000b37bfe71227,
     type: 3}
   m_PrefabInstance: {fileID: 751236581995201211}
   m_PrefabAsset: {fileID: 0}
