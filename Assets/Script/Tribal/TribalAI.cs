@@ -54,45 +54,53 @@ public class TribalAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playerDrop = FindObjectOfType<PlayerDrop>();
     }
-    
+
+    private void Start()
+    {
+        tribalSpeed = Random.Range(5.00f, 7.00f);
+    }
+
     public void FixedUpdate()
     {
-        stonePrefab.transform.position = handPos.transform.position;
-        //check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        if (!playerDrop.onBoat)
+        {
+            stonePrefab.transform.position = handPos.transform.position;
+            //check for sight and attack range
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+
+            if (!playerInAttackRange && !playerInSightRange)
+            {
+
+                Patroling();
+                isWalking = true;
+                isRun = false;
+                isAttacking = false;
+                isDancing = false;
+                directionArrow.SetActive(false);
+            }
+            if (!playerInAttackRange && playerInSightRange)
+            {
+                Chasing();
+                isRun = true;
+                isAttacking = false;
+                isDancing = false;
+                directionArrow.SetActive(true);
+            }
+            if (playerInSightRange && playerInAttackRange)
+            {
+                Attacking();
+                isWalking = false;
+                isRun = false;
+                isAttacking = true;
+                isDancing = false;
+                directionArrow.SetActive(true);
+            }
+
+        }
 
         
-        if (!playerInAttackRange && !playerInSightRange)
-        {
-
-            Patroling();
-            isWalking = true;
-            isRun = false;
-            isAttacking = false;
-            isDancing = false;
-            directionArrow.SetActive(false);
-        }
-        if (!playerInAttackRange && playerInSightRange)
-        {
-            Chasing();
-            isRun = true;
-            isAttacking = false;
-            isDancing = false;
-            directionArrow.SetActive(true);
-        }
-        if (playerInSightRange && playerInAttackRange )
-        {
-            Attacking();
-            isWalking = false;
-            isRun = false;
-            isAttacking = true;
-            isDancing = false;
-            directionArrow.SetActive(true);
-        }
-
-
-        tribalSpeed = Random.Range(5.00f, 7.00f);
 
         if (playerDrop.onBoat)
         {
