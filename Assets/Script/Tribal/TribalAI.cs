@@ -154,13 +154,7 @@ public class TribalAI : MonoBehaviour
         if (!alreadyAttack)
         {
             ///Attack code here
-            ///
-            /*Vector3 throwPos = new Vector3(transform.position.x - .5f,transform.position.y + 2f, transform.position.z);*/
-            //attack animation
-
-            
-
-
+    
             Rigidbody rb = Instantiate(stonePrefab, handPos.gameObject.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             
 

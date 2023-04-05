@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Vehicle : MonoBehaviour
 {
@@ -12,7 +13,20 @@ public class Vehicle : MonoBehaviour
     public float vehicleSpeed;
     public float turningSpeed;
     public Joystick joystick;
+    
     private Rigidbody vehicleRb;
+
+
+    [SerializeField] private Image healthBarSprite;
+    [SerializeField] private Transform HealthLook;
+    [SerializeField] private float reduceSpeed = 2;
+
+    private float target = 1;
+
+    [HideInInspector] public float _currentHealth;
+
+    [HideInInspector] public bool isDead = false;
+
 
     private float horizontalInput;
     private float verticalInput;

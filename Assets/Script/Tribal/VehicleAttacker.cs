@@ -20,10 +20,9 @@ public class VehicleAttacker : MonoBehaviour
     {
         Rigidbody rb = Instantiate(BigStone, handPos.position, Quaternion.identity).GetComponent<Rigidbody>();
 
-        throwSpeed = Random.Range(10, 100);
-
         rb.AddForce(transform.forward * throwSpeed, ForceMode.Impulse);
-        rb.AddForce(transform.up * throwSpeed, ForceMode.Impulse);
+        rb.AddForce(transform.up * throwSpeed / 5, ForceMode.Impulse);
+        rb.AddTorque(Vector3.right * 5f);
 
         Destroy(rb.gameObject, 3f);
     }

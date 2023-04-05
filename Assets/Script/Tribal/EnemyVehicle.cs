@@ -15,7 +15,7 @@ public class EnemyVehicle : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player");
         vehicleRb = GetComponent<Rigidbody>();
-        speed = Random.Range(6f, 7f);
+        speed = Random.Range(speed, speed + 5);
 
     }
 

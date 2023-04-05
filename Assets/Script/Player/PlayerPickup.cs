@@ -130,7 +130,7 @@ public class PlayerPickup : MonoBehaviour
         {
             playerMove.holdStrength = 0;
 
-           // missionText.SetActive(true);
+          missionText.SetActive(true);
 
         }
     }
@@ -139,7 +139,7 @@ public class PlayerPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Drop"))
         {
-           // missionText.SetActive(false);
+            missionText.SetActive(false);
         }
     }
 
