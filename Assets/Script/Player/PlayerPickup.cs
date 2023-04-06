@@ -48,12 +48,14 @@ public class PlayerPickup : MonoBehaviour
             pickedObject = hit.collider.gameObject;
             pickedObject.GetComponent<Rigidbody>().isKinematic = true;
             pickedObject.GetComponent<Collider>().isTrigger = true;
-            pickedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            //pickedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            pickedObject.GetComponent<Transform>();
             prevPosition = pickedObject.transform.position;
 
+            pickedObject.transform.position = Vector3.Lerp(pickedObject.transform.position, pickupPoint.transform.position, 0.005f * Time.deltaTime);
 
-            pickedObject.transform.position = Vector3.Lerp(prevPosition, pickupPoint.position, 0.5f* 
-                Time.deltaTime);
+            /*pickedObject.transform.position = Vector3.Lerp(prevPosition, pickupPoint.position, 0.005f* 
+                Time.deltaTime);**/
 
             pickedObject.transform.parent = pickupPoint.transform;
 
@@ -62,7 +64,6 @@ public class PlayerPickup : MonoBehaviour
 
             //enabling arrow
             theArrow.SetActive(true);
-
         }
 
 
@@ -79,7 +80,7 @@ public class PlayerPickup : MonoBehaviour
 
             Vector3 movement = pickedObject.transform.position;
             float forceMagnitude = Mathf.Clamp(0, 0, movement.magnitude * 5000);
-            pickedObject.GetComponent<Rigidbody>().AddForce(movement.normalized * forceMagnitude *50);
+            pickedObject.GetComponent<Rigidbody>().AddForce(movement.normalized * forceMagnitude * 50);
 
             pickedObject.GetComponent<Collider>().isTrigger = false;
 
@@ -92,8 +93,6 @@ public class PlayerPickup : MonoBehaviour
             theArrow.SetActive(false);
 
         }
-
-
 
         // *******  MISSION COMPLETED  *******
 

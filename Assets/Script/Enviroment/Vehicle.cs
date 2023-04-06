@@ -21,8 +21,6 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private Transform HealthLook;
     [SerializeField] private float reduceSpeed = 2;
 
-    private float target = 1;
-
     [HideInInspector] public float _currentHealth;
 
     [HideInInspector] public bool isDead = false;
