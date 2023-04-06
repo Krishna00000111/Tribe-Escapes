@@ -1,32 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerCollision : MonoBehaviour
 {
     #region Variables
+
     [SerializeField] private float maxHealth = 3;
     private float currentHealth;
 
     [SerializeField] private PlayerHealth playerHealth;
 
-    [SerializeField] SkinnedMeshRenderer playerMr;
+    [SerializeField] private SkinnedMeshRenderer playerMr;
     private Material originalColor;
     public Material desireColor;
 
     public PlayerDrop playerDrop;
 
     private bool isHitted;
-    #endregion
+
+    [HideInInspector]
+    public bool isSafe = false;
+
+    #endregion Variables
 
     private void Start()
     {
-       currentHealth = maxHealth;
+        currentHealth = maxHealth;
         playerHealth.UpdateHealthBar(maxHealth, currentHealth);
         playerHealth._currentHealth = currentHealth;
-        
-
 
         // Blood Red material
         originalColor = playerMr.material;
@@ -37,8 +37,8 @@ public class PlayerCollision : MonoBehaviour
         TrackHealth();
     }
 
-
     #region player collision
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!playerDrop.onBoat)
@@ -59,7 +59,6 @@ public class PlayerCollision : MonoBehaviour
                 FlashStart();
             }
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
@@ -67,11 +66,14 @@ public class PlayerCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Safe"))
         {
             Debug.Log("You're in Safe zone");
+            isSafe = true;
         }
     }
-    #endregion
+
+    #endregion player collision
 
     #region Tracking Health
+
     private void TrackHealth()
     {
         if (isHitted)
@@ -84,7 +86,6 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
-
     private void FlashStart()
     {
         playerMr.material = desireColor;
@@ -95,5 +96,6 @@ public class PlayerCollision : MonoBehaviour
     {
         playerMr.material = originalColor;
     }
-    #endregion
+
+    #endregion Tracking Health
 }

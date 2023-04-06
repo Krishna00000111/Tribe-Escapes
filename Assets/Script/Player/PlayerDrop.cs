@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDrop : MonoBehaviour
 {
-    
     public int requiredLog;
 
     public GameObject boatPrefab;
@@ -33,7 +30,7 @@ public class PlayerDrop : MonoBehaviour
 
     private void Update()
     {
-        if(currentLogDetected == requiredLog)
+        if (currentLogDetected == requiredLog)
         {
             missionCompleted = true;
             boatPrefab.SetActive(true);
@@ -42,8 +39,8 @@ public class PlayerDrop : MonoBehaviour
             realPlayer.transform.parent = boatSeat.transform;
 
             Invoke("EnableSafeZone", 0f);
-            
-           ///Do whatever it takes
+
+            ///Do whatever it takes
         }
     }
 
@@ -59,7 +56,5 @@ public class PlayerDrop : MonoBehaviour
             currentLogDetected = currentLogDetected + 1;
             requiredLogText = requiredLog - 1;
         }
-        
-       
     }
 }

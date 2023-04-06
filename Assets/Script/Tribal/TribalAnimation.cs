@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TribalAnimation : MonoBehaviour
@@ -10,6 +8,7 @@ public class TribalAnimation : MonoBehaviour
     private int throwLayerIndex;
 
     private float targetLayerValue = 1;
+
     private void Start()
     {
         tri_Anim = GetComponent<Animator>();
@@ -21,7 +20,6 @@ public class TribalAnimation : MonoBehaviour
         tri_Anim.SetBool("isRun", tribal.IsSprinting());
 
         tri_Anim.SetBool("isAttacking", tribal.DoingAttack());
-
 
         //tri_Anim.SetBool("isDancing", tribal.isDancing);
     }

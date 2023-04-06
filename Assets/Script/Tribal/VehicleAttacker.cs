@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class VehicleAttacker : MonoBehaviour
@@ -10,10 +8,23 @@ public class VehicleAttacker : MonoBehaviour
     public float throwSpeed;
     public float throwInterval;
 
+    private PlayerCollision playerCol;
+
     private void Start()
     {
-        throwInterval = Random.Range(1.5f, 3f);
-        InvokeRepeating("ThrowStones", 0f, throwInterval);
+        playerCol = GameObject.Find("Player").GetComponent<PlayerCollision>();
+
+        if (!playerCol.isSafe)
+        {
+            throwInterval = Random.Range(1.5f, 3f);
+            InvokeRepeating("ThrowStones", 0f, throwInterval);
+        }
+        else
+        {
+            return;
+        }
+
+       
     }
 
     private void ThrowStones()

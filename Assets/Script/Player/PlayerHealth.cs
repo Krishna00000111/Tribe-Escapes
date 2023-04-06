@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,10 +20,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void LateUpdate()
     {
-
-        transform.position = Vector3.Lerp(transform.position, player.position + new Vector3(0, 4.6f,0) , 100 * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, player.position + new Vector3(0, 4.6f, 0), 100 * Time.deltaTime);
         transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
-
 
         healthBarSprite.fillAmount = Mathf.Lerp(healthBarSprite.fillAmount, target, reduceSpeed * Time.deltaTime);
 
@@ -37,15 +33,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Died()
+    private void Died()
     {
         Debug.Log("You'r Dead");
-        
     }
 
     public void UpdateHealthBar(float t_maxHealth, float t_currentHealth)
     {
         target = t_currentHealth / t_maxHealth;
     }
-
 }

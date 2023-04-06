@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerArrow : MonoBehaviour
 {
-
     public Transform dropTarget;
     public float rotationSpeed;
 
@@ -16,12 +13,10 @@ public class PlayerArrow : MonoBehaviour
         {
             RotateArrow();
         }
-
         else
         {
             return;
         }
-       
     }
 
     private void LateUpdate()

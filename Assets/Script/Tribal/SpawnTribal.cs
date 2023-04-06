@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnTribal : MonoBehaviour
@@ -19,14 +17,12 @@ public class SpawnTribal : MonoBehaviour
     {
         for (int i = 0; i < numberToSpawn; i++)
         {
-
-
             //int specificTribalIndex = 0 ;
             int randomTribalIndex = Random.Range(0, itemPrefabs.Length);
 
             Vector3 randomSpawnPosition = new Vector3(Random.Range(minPosX, maxPosX), 0, Random.Range(minPosZ, maxPosZ));
 
-            Instantiate(itemPrefabs[randomTribalIndex],transform.position + randomSpawnPosition, Quaternion.Euler(0,Random.Range(0, 360), 0));
+            Instantiate(itemPrefabs[randomTribalIndex], transform.position + randomSpawnPosition, Quaternion.Euler(0, Random.Range(0, 360), 0));
         }
     }
 }

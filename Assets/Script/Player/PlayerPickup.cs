@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
@@ -35,7 +33,6 @@ public class PlayerPickup : MonoBehaviour
         missionText.SetActive(false);
 
         theArrow.SetActive(false);
-
     }
 
     private void Update()
@@ -54,28 +51,26 @@ public class PlayerPickup : MonoBehaviour
 
             pickedObject.transform.position = Vector3.Lerp(pickedObject.transform.position, pickupPoint.transform.position, 0.005f * Time.deltaTime);
 
-            /*pickedObject.transform.position = Vector3.Lerp(prevPosition, pickupPoint.position, 0.005f* 
+            /*pickedObject.transform.position = Vector3.Lerp(prevPosition, pickupPoint.position, 0.005f*
                 Time.deltaTime);**/
 
             pickedObject.transform.parent = pickupPoint.transform;
 
             pickedObject.transform.localPosition = new Vector3(0, 0.3f, 0);
-            pickedObject.transform.localRotation = Quaternion.Euler(0,0,0);
+            pickedObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
             //enabling arrow
             theArrow.SetActive(true);
         }
 
-
         // BEFORE LEVEL COMPLETED
 
-
-        if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0 )
+        if (playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0)
         {
             isHolding = false;
 
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-            
+
             // Apply force to object based on player's movement
 
             Vector3 movement = pickedObject.transform.position;
@@ -91,7 +86,6 @@ public class PlayerPickup : MonoBehaviour
             pickedObject = null;
 
             theArrow.SetActive(false);
-
         }
 
         // *******  MISSION COMPLETED  *******
@@ -120,7 +114,6 @@ public class PlayerPickup : MonoBehaviour
 
             theArrow.SetActive(false);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -129,8 +122,7 @@ public class PlayerPickup : MonoBehaviour
         {
             playerMove.holdStrength = 0;
 
-         // missionText.SetActive(true);
-
+            // missionText.SetActive(true);
         }
     }
 
@@ -141,5 +133,4 @@ public class PlayerPickup : MonoBehaviour
             //missionText.SetActive(false);
         }
     }
-
 }

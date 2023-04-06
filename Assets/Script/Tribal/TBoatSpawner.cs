@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TBoatSpawner : MonoBehaviour
@@ -13,7 +11,7 @@ public class TBoatSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-       if(playerDrop.onBoat && !hasInstantiated)
+        if (playerDrop.onBoat && !hasInstantiated)
         {
             for (int i = 0; i < boatSpawnPos.Length; i++)
             {

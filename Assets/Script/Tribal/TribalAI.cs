@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,27 +25,31 @@ public class TribalAI : MonoBehaviour
 
     //animation triggers
     private bool isRun;
+
     private bool isAttacking;
-    bool isWalking ;
-    bool isDancing ;
-    
+    private bool isWalking;
+    private bool isDancing;
+
     //Patroling
     public Vector3 walkPoint;
-    bool walkPointSet;
+
+    private bool walkPointSet;
     public float walkPointRange;
 
     //Attacking
     public float timeBtwAttacks;
-    bool alreadyAttack;
+
+    private bool alreadyAttack;
 
     //States
     public float sightRange, attackRange;
+
     public bool playerInSightRange, playerInAttackRange;
 
-
-    #endregion
+    #endregion Variables
 
     #region Private Methods
+
     private void Awake()
     {
         targetPlayer = GameObject.Find("Player").transform;
@@ -69,10 +71,8 @@ public class TribalAI : MonoBehaviour
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-
             if (!playerInAttackRange && !playerInSightRange)
             {
-
                 Patroling();
                 isWalking = true;
                 isRun = false;
@@ -97,10 +97,7 @@ public class TribalAI : MonoBehaviour
                 isDancing = false;
                 directionArrow.SetActive(true);
             }
-
         }
-
-        
 
         if (playerDrop.onBoat)
         {
@@ -112,20 +109,18 @@ public class TribalAI : MonoBehaviour
         }
     }
 
-    private void Patroling() 
+    private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
             agent.speed = 3.5f;
-            agent.SetDestination(walkPoint);
-        
+        agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        if(distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
-        
     }
 
     private void SearchWalkPoint()
@@ -137,13 +132,14 @@ public class TribalAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 0.4f, whatIsGround))
             walkPointSet = true;
-        
     }
+
     private void Chasing()
     {
         agent.SetDestination(targetPlayer.position);
         agent.speed = tribalSpeed;
     }
+
     private void Attacking()
     {
         //Make sure enemy doesn't move
@@ -154,9 +150,8 @@ public class TribalAI : MonoBehaviour
         if (!alreadyAttack)
         {
             ///Attack code here
-    
+
             Rigidbody rb = Instantiate(stonePrefab, handPos.gameObject.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            
 
             rb.AddForce(transform.forward * stoneThrowSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 4f, ForceMode.Impulse);
@@ -169,15 +164,15 @@ public class TribalAI : MonoBehaviour
         }
     }
 
-   /*private void Dancing()
-    {
-        if (isDancing)
-        {
-            isWalking = false;
-            isRun = false;
-            isAttacking = false;
-        }
-    }*/
+    /*private void Dancing()
+     {
+         if (isDancing)
+         {
+             isWalking = false;
+             isRun = false;
+             isAttacking = false;
+         }
+     }*/
 
     private void ResetAttack()
     {
@@ -188,10 +183,11 @@ public class TribalAI : MonoBehaviour
     {
         return isRun;
     }
+
     public bool DoingAttack()
     {
         return isAttacking;
     }
 
-    #endregion
+    #endregion Private Methods
 }
