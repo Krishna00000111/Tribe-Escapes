@@ -10,6 +10,7 @@ public class PlayerDrop : MonoBehaviour
     public GameObject boatPrefab;
     public GameObject realPlayer;
     public Transform boatSeat;
+    public GameObject SafeZone;
 
     [HideInInspector]
     public int requiredLogText;
@@ -27,6 +28,7 @@ public class PlayerDrop : MonoBehaviour
         currentLogDetected = 0;
         requiredLogText = requiredLog;
         boatPrefab.SetActive(false);
+        SafeZone.SetActive(false);
     }
 
     private void Update()
@@ -39,8 +41,15 @@ public class PlayerDrop : MonoBehaviour
             realPlayer.transform.position = boatSeat.position;
             realPlayer.transform.parent = boatSeat.transform;
 
+            Invoke("EnableSafeZone", 0f);
+            
            ///Do whatever it takes
         }
+    }
+
+    private void EnableSafeZone()
+    {
+        SafeZone.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

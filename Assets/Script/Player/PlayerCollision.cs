@@ -61,6 +61,14 @@ public class PlayerCollision : MonoBehaviour
         }
         
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Safe"))
+        {
+            Debug.Log("You're in Safe zone");
+        }
+    }
     #endregion
 
     #region Tracking Health
