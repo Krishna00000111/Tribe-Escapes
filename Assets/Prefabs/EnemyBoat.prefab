@@ -191,7 +191,7 @@ MonoBehaviour:
   BigStone: {fileID: 8991934196462338329, guid: 059964b7c8f98c3409f3134dfb18c25d,
     type: 3}
   handPos: {fileID: 3799024042834367990}
-  throwSpeed: 250
+  throwSpeed: 101.27
   throwInterval: 1
 --- !u!4 &3799024042834367990 stripped
 Transform:

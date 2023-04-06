@@ -5,11 +5,13 @@ using TMPro;
 
 public class PlayerCollision : MonoBehaviour
 {
-    /*#region Variables
+    #region Variables
     [SerializeField] private float maxHealth = 3;
     private float currentHealth;
 
     [SerializeField] private PlayerHealth playerHealth;
+
+    [SerializeField] MeshRenderer playerMr;
 
     private bool isHitted;
     #endregion
@@ -50,5 +52,5 @@ public class PlayerCollision : MonoBehaviour
             playerHealth.isDead = true;
         }
     }
-    #endregion*/
+    #endregion
 }

@@ -26,7 +26,7 @@ public class PlayerArrow : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = playerPickup.transform.position + new Vector3(0, 5, 0);
+        transform.position = playerPickup.transform.position + new Vector3(0, 7, 0);
     }
 
     private void RotateArrow()

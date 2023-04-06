@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1488802135929010845}
   - component: {fileID: 1488802135929010844}
   - component: {fileID: 4335168558752038599}
-  - component: {fileID: 3248097832934648826}
+  - component: {fileID: 2201628882838799998}
   - component: {fileID: 170414896}
   - component: {fileID: 170414898}
   m_Layer: 7
@@ -197,7 +197,7 @@ MonoBehaviour:
   theArrow: {fileID: 0}
   isHolding: 0
   missionText: {fileID: 0}
---- !u!114 &3248097832934648826
+--- !u!114 &2201628882838799998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488802135929010847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4a4c4e870404a47a25a840e3cebf0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f398958fa109fa4eabbe88116106de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &170414896
