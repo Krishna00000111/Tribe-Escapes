@@ -11,7 +11,11 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField] private PlayerHealth playerHealth;
 
-    [SerializeField] MeshRenderer playerMr;
+    [SerializeField] SkinnedMeshRenderer playerMr;
+    private Material originalColor;
+    public Material desireColor;
+
+    public PlayerDrop playerDrop;
 
     private bool isHitted;
     #endregion
@@ -21,6 +25,11 @@ public class PlayerCollision : MonoBehaviour
        currentHealth = maxHealth;
         playerHealth.UpdateHealthBar(maxHealth, currentHealth);
         playerHealth._currentHealth = currentHealth;
+        
+
+
+        // Blood Red material
+        originalColor = playerMr.material;
     }
 
     private void Update()
@@ -32,11 +41,25 @@ public class PlayerCollision : MonoBehaviour
     #region player collision
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Hurt") && currentHealth > 0)
+        if (!playerDrop.onBoat)
         {
-            isHitted = true;
-            currentHealth -= 1;
+            if (collision.gameObject.CompareTag("Hurt") && currentHealth > 0)
+            {
+                isHitted = true;
+                currentHealth -= 1;
+                FlashStart();
+            }
         }
+        else
+        {
+            if (collision.gameObject.CompareTag("Hurt") && currentHealth > 0)
+            {
+                isHitted = true;
+                currentHealth -= 10;
+                FlashStart();
+            }
+        }
+        
     }
     #endregion
 
@@ -51,6 +74,18 @@ public class PlayerCollision : MonoBehaviour
         {
             playerHealth.isDead = true;
         }
+    }
+
+
+    private void FlashStart()
+    {
+        playerMr.material = desireColor;
+        Invoke("StopFlash", 0.2f);
+    }
+
+    private void StopFlash()
+    {
+        playerMr.material = originalColor;
     }
     #endregion
 }
