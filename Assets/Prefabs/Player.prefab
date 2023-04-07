@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 170414898}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,12 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494b0c7271296c34eaa840743e97f715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 30
   joystick: {fileID: 0}
   directionCicle: {fileID: 2124031409}
   thisIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   holdStrength: 2
   boatPaddle: {fileID: 919132147603512672}
   pickedLost: 0
@@ -209,11 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f398958fa109fa4eabbe88116106de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 10
   playerHealth: {fileID: 0}
-  playerMr: {fileID: 0}
-  desireColor: {fileID: 0}
+  playerMr: {fileID: 7696407346586674415}
+  desireColor: {fileID: 2100000, guid: 4383146e26e54b14590bbcbddbd6eb5b, type: 2}
   playerDrop: {fileID: 0}
+  isSafe: 0
 --- !u!136 &170414896
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &8186749434041582901
 GameObject:
@@ -407,6 +408,12 @@ Transform:
 --- !u!4 &6502182839614691319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: bf2ecc277183e92488482e7e4b7cf8fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 134038068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7696407346586674415 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1526964690268444965, guid: bf2ecc277183e92488482e7e4b7cf8fa,
     type: 3}
   m_PrefabInstance: {fileID: 134038068}
   m_PrefabAsset: {fileID: 0}

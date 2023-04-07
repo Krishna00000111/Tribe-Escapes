@@ -484,12 +484,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 727247926}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &179837163 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7696407346586674415, guid: 0191ce183621d00438e799f2b26fde60,
-    type: 3}
-  m_PrefabInstance: {fileID: 1404568257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &185435809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3468,10 +3462,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 170414898, guid: 0191ce183621d00438e799f2b26fde60, type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
     - target: {fileID: 1488802135929010844, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: joystick
@@ -3480,12 +3470,7 @@ PrefabInstance:
     - target: {fileID: 1488802135929010844, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: moveSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1488802135929010844, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: thisIsGround.m_Bits
-      value: 64
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1488802135929010845, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
@@ -3547,21 +3532,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1488802135929010847, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: playerMr
-      value: 
-      objectReference: {fileID: 179837163}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: playerDrop
@@ -3569,34 +3539,9 @@ PrefabInstance:
       objectReference: {fileID: 1584732476}
     - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
-      propertyPath: desireColor
-      value: 
-      objectReference: {fileID: 2100000, guid: 4383146e26e54b14590bbcbddbd6eb5b, type: 2}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1540777098}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: desireColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: desireColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: desireColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: desireColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4335168558752038599, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: theArrow
@@ -3607,16 +3552,6 @@ PrefabInstance:
       propertyPath: missionText
       value: 
       objectReference: {fileID: 1046881598}
-    - target: {fileID: 4335168558752038599, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: sphereRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696407346586674415, guid: 0191ce183621d00438e799f2b26fde60,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e4dec8e3b15ed2d4f9341e2d78388dff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0191ce183621d00438e799f2b26fde60, type: 3}
 --- !u!1001 &1449254748
