@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2555ad68b0c3724e8bc42e164a0facd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 7
 --- !u!54 &-5058763440827449898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   BigStone: {fileID: 8991934196462338329, guid: 059964b7c8f98c3409f3134dfb18c25d,
     type: 3}
   handPos: {fileID: 3799024042834367990}
-  throwSpeed: 101.27
+  throwSpeed: 150
   throwInterval: 1
 --- !u!4 &3799024042834367990 stripped
 Transform:
