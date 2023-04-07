@@ -104,7 +104,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -138,7 +138,7 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &8991934196462338329
 GameObject:
@@ -204,7 +204,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6867524174320841699, guid: dcf708aa613a1d5479e14133b362077a, type: 3}
+  - {fileID: 8507789265930873676, guid: ef31dfe51ea175c48ab5946c8b5df373, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

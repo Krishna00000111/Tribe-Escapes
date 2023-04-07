@@ -35,6 +35,6 @@ public class VehicleAttacker : MonoBehaviour
         rb.AddForce(transform.up * throwSpeed / 5, ForceMode.Impulse);
         rb.AddTorque(Vector3.right * 5f);
 
-        Destroy(rb.gameObject, 3f);
+        Destroy(rb.gameObject, 5f);
     }
 }

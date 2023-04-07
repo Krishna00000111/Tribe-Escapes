@@ -463,7 +463,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166703255}
-  m_LocalRotation: {x: 0.36455497, y: 1e-45, z: -0, w: 0.9311819}
+  m_LocalRotation: {x: 0.36455497, y: -3e-45, z: 1e-45, w: 0.9311819}
   m_LocalPosition: {x: 53.4, y: 27.75, z: -114.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2945,7 +2945,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176452294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000062569}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2954,7 +2954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.3, y: 8.2701}
+  m_AnchoredPosition: {x: -15.6, y: 8.2701}
   m_SizeDelta: {x: 98.71, y: 83.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176452296
@@ -3004,8 +3004,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.1
-  m_fontSizeBase: 27.1
+  m_fontSize: 40.8
+  m_fontSizeBase: 40.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3419,7 +3419,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383481525}
-  m_LocalRotation: {x: 0.36455497, y: 1e-45, z: -0, w: 0.9311819}
+  m_LocalRotation: {x: 0.36455497, y: -3e-45, z: 1e-45, w: 0.9311819}
   m_LocalPosition: {x: 53.4, y: 27.75, z: -114.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3480,7 +3480,7 @@ PrefabInstance:
     - target: {fileID: 1488802135929010844, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: moveSpeed
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1488802135929010844, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
@@ -3560,7 +3560,7 @@ PrefabInstance:
     - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: maxHealth
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2201628882838799998, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
@@ -3991,7 +3991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a358405ad56cf4db410d59cd91e5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLog: 1
+  requiredLog: 0
   boatPrefab: {fileID: 1204174863}
   realPlayer: {fileID: 1634298255}
   boatSeat: {fileID: 1657644305}
@@ -4010,8 +4010,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.2134132, y: 0.052164435, z: 4.265725}
-  m_Center: {x: 0.014987017, y: -0.07061157, z: -1.1511418}
+  m_Size: {x: 6.2134132, y: 0.16062507, z: 4.265725}
+  m_Center: {x: 0.014986994, y: -0.016381253, z: -1.1511415}
 --- !u!1 &1634298255 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1488802135929010847, guid: 0191ce183621d00438e799f2b26fde60,

@@ -156,7 +156,7 @@ public class TribalAI : MonoBehaviour
             rb.AddForce(transform.forward * stoneThrowSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 4f, ForceMode.Impulse);
 
-            Destroy(rb.gameObject, 0.8f);
+            Destroy(rb.gameObject, 1.5f);
             ///End of attack code
 
             alreadyAttack = true;
