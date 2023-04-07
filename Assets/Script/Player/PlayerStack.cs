@@ -9,7 +9,7 @@ public class PlayerStack : MonoBehaviour
     Stack<Transform> collectedTrans = new Stack<Transform>();
     bool isIndropArea;
     Vector3 DropPos;
-    //unlock Reward/Item
+    UnlockSrc unlockItemSrc;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +17,7 @@ public class PlayerStack : MonoBehaviour
         {
             isIndropArea = true;
             DropPos = other.transform.position;
-            //other.TryGetComponent(out unlockItemSrc);
+            other.TryGetComponent(out unlockItemSrc);
 
             StartCoroutine(DropSlow(0.5f));
         }
