@@ -695,7 +695,7 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: 1573281472736089497, guid: 5bf11801239e73845bc7c55ff53a3ef1, type: 3}
   - {fileID: 1573281472736089497, guid: 023675b0f2e8c804d8240bc6b914e4d4, type: 3}
-  numberToSpawn: 10
+  numberToSpawn: 20
   maxPosX: 35
   minPosX: -35
   maxPosZ: 15
@@ -3335,7 +3335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -3468,6 +3468,11 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 890192252}
+    - target: {fileID: 1488802135929010844, guid: 0191ce183621d00438e799f2b26fde60,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1488802135929010845, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: m_RootOrder
