@@ -51,8 +51,9 @@ public class PlayerMove : MonoBehaviour
         if (holdStrength == 0)
         {
             pickedLost = true;
+            
         }
-
+        Debug.Log(holdStrength);
     }
     private void FixedUpdate()
     {
@@ -101,7 +102,7 @@ public class PlayerMove : MonoBehaviour
             
         }
 
-        if(holdStrength <= -1)
+        if(holdStrength <= 0)
         {
             holdStrength = 2;
         }

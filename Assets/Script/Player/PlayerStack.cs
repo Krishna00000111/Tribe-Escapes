@@ -10,12 +10,11 @@ public class PlayerStack : MonoBehaviour
     private PlayerMove playerMove;
     public int maxStackCount;
     private int currentStackCount;
-    public float look;
 
     [HideInInspector]
-    public bool isStack;
+    public bool isStacking;
 
-    public List<GameObject> collectedObjects = new List<GameObject>(); // List of collected objects
+    private List<GameObject> collectedObjects = new List<GameObject>(); // List of collected objects
 
     private void Start()
     {
@@ -28,20 +27,41 @@ public class PlayerStack : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, maxDistance);
         foreach (Collider collider in hitColliders)
         {
-            if (collectedObjects.Contains(collider.gameObject)) continue; // Skip objects that have already been collected
-            if ((collectableLayer.value & (1 << collider.gameObject.layer)) == 0) continue; // Skip objects that are not on the collectable layer
-            if (currentStackCount >= maxStackCount) break; // Skip objects if we have reached the maximum stack count
-            CollectObject(collider.gameObject);
-            currentStackCount++;
+            if(playerMove.holdStrength > 0)
+            {
+                if (collectedObjects.Contains(collider.gameObject)) continue; // Skip objects that have already been collected
+                if ((collectableLayer.value & (1 << collider.gameObject.layer)) == 0) continue; // Skip objects that are not on the collectable layer
+                if (currentStackCount >= maxStackCount) break; // Skip objects if we have reached the maximum stack count
+                CollectObject(collider.gameObject);
+                currentStackCount++;
+            }
+            
         }
 
         if (collectedObjects.Count > 0)
         {
-            isStack = true;
+            isStacking = true;
         }
         else
         {
-            isStack = false;
+            isStacking = false;
+            //playerMove.holdStrength = playerMove.holdStrength +2;
+        }
+
+        if (playerMove.pickedLost && collectedObjects.Count > 0)
+        {
+            GameObject topObject = collectedObjects[collectedObjects.Count - 1]; // Get the top object in the collected objects list
+            // // Remove the top object from the list
+
+            topObject.transform.parent = null; // Unparent the top object
+            collectedObjects.Remove(topObject);
+
+            Collider collider = topObject.GetComponent<Collider>();
+            if (collider != null) collider.enabled = true;
+
+            Rigidbody rigidbody = topObject.GetComponent<Rigidbody>();
+            if (rigidbody != null) rigidbody.isKinematic = false;
+
         }
     }
 
@@ -58,25 +78,7 @@ public class PlayerStack : MonoBehaviour
             // Rotate object in the direction the player is facing
             Vector3 lookDirection = transform.up;
             lookDirection.y = 90f; // Zero out the y component to avoid tilting the object
-
-            
-            
         }
-
-        if (playerMove.pickedLost && collectedObjects.Count > 0)
-        {
-            GameObject topObject = collectedObjects[collectedObjects.Count]; // Get the top object in the collected objects list
-            collectedObjects.RemoveAt(collectedObjects.Count); // Remove the top object from the list
-            topObject.transform.parent = null; // Unparent the top object
-            Collider collider = topObject.GetComponent<Collider>();
-            if (collider != null) collider.enabled = true;
-
-            Rigidbody rigidbody = topObject.GetComponent<Rigidbody>();
-            if (rigidbody != null) rigidbody.isKinematic = false;
-
-
-        }
-
     }
 
 

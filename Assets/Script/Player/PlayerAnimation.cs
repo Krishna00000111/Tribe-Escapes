@@ -37,7 +37,7 @@ public class PlayerAnimation : MonoBehaviour
         playerAnim.SetBool("onBoat", playerDrop.onBoat);
 
         //holding
-        if (playerStack.isStack )
+        if (playerStack.isStacking)
         {
             playerAnim.SetLayerWeight(holdLayerIndex, targetLayerValue);
         }
