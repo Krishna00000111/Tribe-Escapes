@@ -21,7 +21,10 @@ public class PlayerStack : MonoBehaviour
             if ((collectableLayer.value & (1 << collider.gameObject.layer)) == 0) continue; // Skip objects that are not on the collectable layer
             CollectObject(collider.gameObject);
         }
+    }
 
+    private void FixedUpdate()
+    {
         // Move collected objects to player's hand and stack them
         Vector3 stackOffset = Vector3.zero;
         foreach (GameObject collectedObject in collectedObjects)
@@ -32,11 +35,9 @@ public class PlayerStack : MonoBehaviour
             // Rotate object in the direction the player is facing
             Vector3 lookDirection = transform.up;
             lookDirection.y = 90f; // Zero out the y component to avoid tilting the object
-
-            
         }
     }
-    
+
 
     private void CollectObject(GameObject obj)
     {
