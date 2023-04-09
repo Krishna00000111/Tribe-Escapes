@@ -7,6 +7,7 @@ public class PlayerStack : MonoBehaviour
     public float maxDistance = 1f; // The maximum distance for collecting objects
     public float collectingSpeed = 5f; // The speed at which objects will be collected
     public LayerMask collectableLayer; // The layer of objects that can be collected
+    public float look; 
 
     private List<GameObject> collectedObjects = new List<GameObject>(); // List of collected objects
 
@@ -29,19 +30,22 @@ public class PlayerStack : MonoBehaviour
             stackOffset += Vector3.up * 1; // Add the height of the object to the stack offset
 
             // Rotate object in the direction the player is facing
-            Vector3 lookDirection = transform.forward;
+            Vector3 lookDirection = transform.up;
             lookDirection.y = 0f; // Zero out the y component to avoid tilting the object
-            collectedObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
+            
         }
     }
+    
 
     private void CollectObject(GameObject obj)
     {
         collectedObjects.Add(obj);
 
+        // Make object a child of player's hand
+        obj.transform.parent = handTransform;
+
         // Move object to player's hand
-        obj.transform.position = transform.position;
+        obj.transform.localPosition = Vector3.zero;
 
         // Disable collider and rigidbody so the object no longer interacts with the environment
         Collider collider = obj.GetComponent<Collider>();
