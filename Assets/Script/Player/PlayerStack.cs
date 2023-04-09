@@ -31,7 +31,8 @@ public class PlayerStack : MonoBehaviour
 
             // Rotate object in the direction the player is facing
             Vector3 lookDirection = transform.up;
-            lookDirection.y = 0f; // Zero out the y component to avoid tilting the object
+            lookDirection.y = 90f; // Zero out the y component to avoid tilting the object
+
             
         }
     }
@@ -46,6 +47,7 @@ public class PlayerStack : MonoBehaviour
 
         // Move object to player's hand
         obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.Euler(0, 90f, 0);
 
         // Disable collider and rigidbody so the object no longer interacts with the environment
         Collider collider = obj.GetComponent<Collider>();
