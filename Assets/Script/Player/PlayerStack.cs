@@ -7,12 +7,20 @@ public class PlayerStack : MonoBehaviour
     public float maxDistance = 1f; // The maximum distance for collecting objects
     public float collectingSpeed = 5f; // The speed at which objects will be collected
     public LayerMask collectableLayer; // The layer of objects that can be collected
+    private PlayerMove playerMove;
+    public int maxStackCount;
+    private int currentStackCount;
     public float look;
 
     [HideInInspector]
     public bool isStack;
 
-    private List<GameObject> collectedObjects = new List<GameObject>(); // List of collected objects
+    public List<GameObject> collectedObjects = new List<GameObject>(); // List of collected objects
+
+    private void Start()
+    {
+        playerMove = GetComponentInParent<PlayerMove>();
+    }
 
     private void Update()
     {
@@ -22,7 +30,18 @@ public class PlayerStack : MonoBehaviour
         {
             if (collectedObjects.Contains(collider.gameObject)) continue; // Skip objects that have already been collected
             if ((collectableLayer.value & (1 << collider.gameObject.layer)) == 0) continue; // Skip objects that are not on the collectable layer
+            if (currentStackCount >= maxStackCount) break; // Skip objects if we have reached the maximum stack count
             CollectObject(collider.gameObject);
+            currentStackCount++;
+        }
+
+        if (collectedObjects.Count > 0)
+        {
+            isStack = true;
+        }
+        else
+        {
+            isStack = false;
         }
     }
 
@@ -40,12 +59,24 @@ public class PlayerStack : MonoBehaviour
             Vector3 lookDirection = transform.up;
             lookDirection.y = 90f; // Zero out the y component to avoid tilting the object
 
-            if(collectedObjects.Count > 0)
-            {
-                isStack = true;
-            }
+            
             
         }
+
+        if (playerMove.pickedLost && collectedObjects.Count > 0)
+        {
+            GameObject topObject = collectedObjects[collectedObjects.Count]; // Get the top object in the collected objects list
+            collectedObjects.RemoveAt(collectedObjects.Count); // Remove the top object from the list
+            topObject.transform.parent = null; // Unparent the top object
+            Collider collider = topObject.GetComponent<Collider>();
+            if (collider != null) collider.enabled = true;
+
+            Rigidbody rigidbody = topObject.GetComponent<Rigidbody>();
+            if (rigidbody != null) rigidbody.isKinematic = false;
+
+
+        }
+
     }
 
 
