@@ -10,8 +10,10 @@ public class PlayerAnimation : MonoBehaviour
     private int holdLayerIndex;
 
     private  PlayerMove player;
+    //For Single Hand Log
     private PlayerPickup playerPickup;
     private PlayerDrop playerDrop;
+    //For Stackings Mechanics
     private PlayerStack playerStack;
 
     float targetLayerValue = 1;
@@ -23,7 +25,9 @@ public class PlayerAnimation : MonoBehaviour
     void Awake()
     {
         player = GetComponentInParent<PlayerMove>();
+        //Single Stack
         playerPickup = GetComponentInParent<PlayerPickup>();
+        //Stacking Mechanics
         playerStack = GetComponentInParent<PlayerStack>();
         playerDrop = FindObjectOfType<PlayerDrop>();
         playerAnim = GetComponent<Animator>();
@@ -37,7 +41,16 @@ public class PlayerAnimation : MonoBehaviour
         playerAnim.SetBool("onBoat", playerDrop.onBoat);
 
         //holding
-        if (playerStack.isStacking)
+        /*if (playerStack.isStacking)
+        {
+            playerAnim.SetLayerWeight(holdLayerIndex, targetLayerValue);
+        }
+        else
+        {
+            playerAnim.SetLayerWeight(holdLayerIndex, 0);
+        }*/
+        
+        if (playerPickup.isHolding)
         {
             playerAnim.SetLayerWeight(holdLayerIndex, targetLayerValue);
         }
@@ -45,9 +58,6 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerAnim.SetLayerWeight(holdLayerIndex, 0);
         }
-        
-       
-
     }
 
     #endregion

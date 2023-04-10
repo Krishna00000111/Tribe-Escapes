@@ -48,12 +48,12 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (holdStrength == 0)
+        if(holdStrength == 0)
         {
             pickedLost = true;
-            
         }
-        Debug.Log(holdStrength);
+
+       // Debug.Log(holdStrength);
     }
     private void FixedUpdate()
     {
@@ -99,14 +99,16 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Hurt"))
         {
             holdStrength -= 1;
-            
         }
-
-        if(holdStrength <= 0)
+        
+        if(holdStrength == 0)
         {
+            
             holdStrength = 2;
         }
 
+
+       
         
     }
 

@@ -90,6 +90,7 @@ public class PlayerPickup : MonoBehaviour
 
         // *******  MISSION COMPLETED  *******
 
+
         if (playerDrop.missionCompleted)
         {
             if (!isHolding) return;

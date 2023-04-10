@@ -7,9 +7,9 @@ public class PlayerStack : MonoBehaviour
     public float maxDistance = 1f; // The maximum distance for collecting objects
     public float collectingSpeed = 5f; // The speed at which objects will be collected
     public LayerMask collectableLayer; // The layer of objects that can be collected
-    private PlayerMove playerMove;
-    public int maxStackCount;
-    private int currentStackCount;
+    private PlayerMove playerMove; // Variable to find player
+    public int maxStackCount; // max stack count
+    private int currentStackCount; // current Stack Count
 
     [HideInInspector]
     public bool isStacking;
@@ -27,15 +27,11 @@ public class PlayerStack : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, maxDistance);
         foreach (Collider collider in hitColliders)
         {
-            if(playerMove.holdStrength > 0)
-            {
-                if (collectedObjects.Contains(collider.gameObject)) continue; // Skip objects that have already been collected
-                if ((collectableLayer.value & (1 << collider.gameObject.layer)) == 0) continue; // Skip objects that are not on the collectable layer
-                if (currentStackCount >= maxStackCount) break; // Skip objects if we have reached the maximum stack count
-                CollectObject(collider.gameObject);
-                currentStackCount++;
-            }
-            
+            if (collectedObjects.Contains(collider.gameObject)) continue; // Skip objects that have already been collected
+            if ((collectableLayer.value & (1 << collider.gameObject.layer)) == 0) continue; // Skip objects that are not on the collectable layer
+            if (currentStackCount >= maxStackCount) break; // Skip objects if we have reached the maximum stack count
+            CollectObject(collider.gameObject);
+            currentStackCount++;
         }
 
         if (collectedObjects.Count > 0)
@@ -45,29 +41,30 @@ public class PlayerStack : MonoBehaviour
         else
         {
             isStacking = false;
-            //playerMove.holdStrength = playerMove.holdStrength +2;
         }
+
+        // ********   D   R   O   P   *********
 
         if (playerMove.pickedLost && collectedObjects.Count > 0)
         {
             GameObject topObject = collectedObjects[collectedObjects.Count - 1]; // Get the top object in the collected objects list
-            // // Remove the top object from the list
+            // Remove the top object from the list
 
             topObject.transform.parent = null; // Unparent the top object
-            collectedObjects.Remove(topObject);
+            collectedObjects.RemoveAt(collectedObjects.Count - 1);
 
             Collider collider = topObject.GetComponent<Collider>();
             if (collider != null) collider.enabled = true;
 
             Rigidbody rigidbody = topObject.GetComponent<Rigidbody>();
             if (rigidbody != null) rigidbody.isKinematic = false;
-
         }
     }
 
     private void FixedUpdate()
     {
         // Move collected objects to player's hand and stack them
+
         Vector3 stackOffset = Vector3.zero;
         foreach (GameObject collectedObject in collectedObjects)
         {
@@ -81,23 +78,37 @@ public class PlayerStack : MonoBehaviour
         }
     }
 
-
     private void CollectObject(GameObject obj)
     {
-        collectedObjects.Add(obj);
+        if(playerMove.holdStrength >= 0)
+        {
+            collectedObjects.Add(obj);
 
-        // Make object a child of player's hand
-        obj.transform.parent = handTransform;
+            // Make object a child of player's hand
+            obj.transform.parent = handTransform;
 
-        // Move object to player's hand
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            // Move object to player's hand
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
-        // Disable collider and rigidbody so the object no longer interacts with the environment
-        Collider collider = obj.GetComponent<Collider>();
-        if (collider != null) collider.enabled = false;
+            // Disable collider and rigidbody so the object no longer interacts with the environment
+            Collider collider = obj.GetComponent<Collider>();
+            if (collider != null) collider.enabled = false;
 
-        Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
-        if (rigidbody != null) rigidbody.isKinematic = true;
+            Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
+            if (rigidbody != null) rigidbody.isKinematic = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Drop"))
+        {
+            print("Into Drop");
+        }
     }
 }
