@@ -53,7 +53,7 @@ public class PlayerMove : MonoBehaviour
             pickedLost = true;
         }
 
-       // Debug.Log(holdStrength);
+        // Debug.Log(holdStrength);
     }
     private void FixedUpdate()
     {
@@ -99,17 +99,17 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Hurt"))
         {
             holdStrength -= 1;
+
         }
-        
-        if(holdStrength == 0)
+
+        if (holdStrength <= -1)
         {
-            
             holdStrength = 2;
         }
 
 
-       
-        
+
+
     }
 
     #endregion 
